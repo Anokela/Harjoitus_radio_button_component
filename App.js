@@ -1,11 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
+import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Radiobutton from './components/Radiobutton'
 
 export default function App() {
+  const [test, setTest] = useState(1)
+  const options = [
+    {
+      label: 'Test 1',
+      value: 1
+    },
+    {
+      label: 'Test 2',
+      value: 2,
+    }
+  ]
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Radiobutton value={test} options={options} onPress={(value) => {setTest(value)}}/>
+      <Text>Test {test} selected</Text>
     </View>
   );
 }
